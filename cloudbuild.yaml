@@ -29,7 +29,11 @@ steps:
 
           terraform init -input=false
           terraform apply -auto-approve -input=false \
-            -var="project_id=${PROJECT_ID}"
+            -var="project_id=${PROJECT_ID}" \
+            -var="region=us-central1"
 
 options:
   logging: CLOUD_LOGGING_ONLY
+
+images:
+  - "us.gcr.io/${PROJECT_ID}/${REPO_NAME}/${BRANCH_NAME}:latest"
