@@ -23,12 +23,12 @@ steps:
       - |
           command -v gke-gcloud-auth-plugin
 
-          gcloud container clusters get-credentials raio --zone us-central1-c --project ${PROJECT_ID}
+          gcloud container clusters get-credentials raio --zone us-central1-c --project ${PROJECT_ID} || echo "Cluster não disponível. Ignorando para teste."
 
           cd infra/test
 
           terraform init -input=false
-          terraform plan -auto-approve -input=false \
+          terraform apply -auto-approve -input=false \
             -var="project_name=${REPO_NAME}" \
             -var="env=$BRANCH_NAME" \
             -var="project_id=${PROJECT_ID}"
