@@ -29,8 +29,6 @@ steps:
 
           terraform init -input=false
           terraform apply -auto-approve -input=false \
-            -var="project_name=${REPO_NAME}" \
-            -var="env=$BRANCH_NAME" \
             -var="project_id=${PROJECT_ID}"
 
 options:
