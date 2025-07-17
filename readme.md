@@ -58,7 +58,7 @@ docker run -it terraform-gcp-test terraform version
 
 - Projeto GCP com o Cloud Build habilitado
 - Permissões adequadas para usar GKE via Terraform
-- Billing ativado (para testes reais, não necessário neste cenário)
+- Billing ativado (para testes reais, não necessário neste cenário)!!!
 
 ---
 
