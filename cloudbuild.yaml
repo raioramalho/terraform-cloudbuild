@@ -1,0 +1,16 @@
+steps:  
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "us.gcr.io/${PROJECT_ID}/${REPO_NAME}/${BRANCH_NAME}",
+        "--cache-from=us.gcr.io/${PROJECT_ID}/${REPO_NAME}/${BRANCH_NAME}",
+        "."
+      ]
+
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "us.gcr.io/${PROJECT_ID}/${REPO_NAME}/${BRANCH_NAME}"]
+
+options:
+  logging: CLOUD_LOGGING_ONLY
